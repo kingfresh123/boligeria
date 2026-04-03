@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boligeria Music Studio - Mobile</title>
+    <title>Boligeria Music Studio</title>
 
     <style>
         * {
@@ -18,65 +18,63 @@
             background: radial-gradient(circle at top, #1a1400, #000);
             color: white;
         }
-        /* SIDEBAR */
+        /* TOP NAV */
         
-        .sidebar {
-            width: 240px;
-            height: 100vh;
+        .topbar {
             position: fixed;
-            left: 0;
             top: 0;
-            background: linear-gradient(180deg, #111, #000);
-            padding: 20px;
-            border-right: 2px solid gold;
-            transition: 0.3s;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(90deg, #111, #000);
+            border-bottom: 2px solid gold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
             z-index: 1000;
         }
         
         .logo {
-            font-size: 24px;
             color: gold;
             font-weight: bold;
+            font-size: 18px;
             text-shadow: 0 0 10px gold;
-            margin-bottom: 20px;
         }
         
-        .sidebar a {
-            display: block;
+        .nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .nav a {
             color: white;
             text-decoration: none;
-            padding: 10px;
-            margin: 10px 0;
+            padding: 8px 10px;
             border-radius: 8px;
+            font-size: 14px;
         }
         
-        .sidebar a:hover {
+        .nav a:hover {
             background: gold;
             color: black;
         }
         /* MAIN */
         
         .main {
-            margin-left: 260px;
-            padding: 20px;
-            transition: 0.3s;
+            padding: 80px 15px 100px;
         }
-        
-        .header {
-            font-size: 28px;
-            color: gold;
-            font-weight: bold;
-            text-shadow: 0 0 10px gold;
-        }
+        /* SEARCH */
         
         .search input {
             width: 100%;
             padding: 12px;
-            margin: 15px 0;
             border-radius: 10px;
             border: 1px solid gold;
             background: #111;
             color: white;
+            margin-bottom: 15px;
         }
         /* GRID */
         
@@ -87,7 +85,7 @@
         }
         
         .card {
-            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+            background: #111;
             border: 1px solid rgba(255, 215, 0, 0.3);
             border-radius: 15px;
             padding: 12px;
@@ -115,6 +113,13 @@
             font-weight: bold;
             text-decoration: none;
             font-size: 12px;
+            border: none;
+            cursor: pointer;
+        }
+        /* SECTION */
+        
+        .section {
+            margin-top: 30px;
         }
         /* PROFILE */
         
@@ -159,7 +164,7 @@
         .player {
             position: fixed;
             bottom: 0;
-            left: 260px;
+            left: 0;
             right: 0;
             background: #0a0a0a;
             border-top: 2px solid gold;
@@ -172,53 +177,18 @@
         .player audio {
             width: 60%;
         }
-        /* HAMBURGER */
-        
-        .menu-btn {
-            display: none;
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            background: gold;
-            color: black;
-            padding: 10px 12px;
-            border-radius: 8px;
-            font-weight: bold;
-            z-index: 2000;
-            cursor: pointer;
-        }
         /* MOBILE */
         
         @media(max-width:768px) {
-            .sidebar {
-                left: -260px;
-            }
-            .sidebar.active {
-                left: 0;
-            }
-            .main {
-                margin-left: 0;
-                padding-top: 60px;
+            .nav {
+                display: none;
             }
             .player {
-                left: 0;
                 flex-direction: column;
                 gap: 8px;
             }
             .player audio {
                 width: 100%;
-            }
-            .menu-btn {
-                display: block;
-            }
-            .grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media(max-width:480px) {
-            .grid {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -226,23 +196,20 @@
 
 <body>
 
-    <!-- MENU BUTTON -->
-    <div class="menu-btn" onclick="toggleMenu()">☰ MENU</div>
-
-    <!-- SIDEBAR -->
-    <div class="sidebar" id="sidebar">
+    <!-- TOP BAR -->
+    <div class="topbar">
         <div class="logo">💛 MUSIC</div>
 
-        <a href="#songs">🎧 Songs</a>
-        <a href="#artists">👨‍🎤 Artists</a>
-        <a href="#news">📰 News</a>
-        <a href="#ceo">👑 CEO</a>
+        <div class="nav">
+            <a href="#songs">Songs</a>
+            <a href="#artists">Artists</a>
+            <a href="#news">News</a>
+            <a href="#ceo">CEO</a>
+        </div>
     </div>
 
     <!-- MAIN -->
     <div class="main">
-
-        <div class="header">Boligeria Music Studio 💛</div>
 
         <div class="search">
             <input type="text" placeholder="Search songs or artists..." onkeyup="searchSongs(this.value)">
@@ -281,13 +248,13 @@
             <h2 style="color:gold">📰 News</h2>
 
             <div class="news-card">
-                <div class="news-title">🔥 Afrobeat dominates global charts</div>
-                <p>Streaming numbers are rising worldwide.</p>
+                <div class="news-title">🔥 Afrobeat dominates charts</div>
+                <p>Streaming numbers increasing daily worldwide.</p>
             </div>
 
             <div class="news-card">
-                <div class="news-title">💛 New mobile update released</div>
-                <p>Better UI for phones and tablets.</p>
+                <div class="news-title">💛 New golden UI update</div>
+                <p>Better mobile and desktop experience.</p>
             </div>
 
         </div>
@@ -315,10 +282,6 @@
     </div>
 
     <script>
-        function toggleMenu() {
-            document.getElementById("sidebar").classList.toggle("active");
-        }
-
         let songs = [{
             title: "Khaid Nin Rukaya",
             artist: "Rulling King",
@@ -329,11 +292,6 @@
             artist: "G Bwoy",
             cover: "G.jpg",
             file: "GBM.mp3"
-        }, {
-            title: "Royal Vibes",
-            artist: "Golden Crew",
-            cover: "https://picsum.photos/300",
-            file: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
         }];
 
         function display(list = songs) {
@@ -348,7 +306,7 @@
 <p>${s.artist}</p>
 
 <button class="btn" onclick="playSong(${i})">▶ Play</button>
-<a class="btn" href="${s.file}" download>⬇</a>
+<a class="btn" href="${s.file}" download>⬇ Download</a>
 </div>`;
             });
         }
@@ -357,7 +315,7 @@
             document.getElementById("audio").src = songs[i].file;
             document.getElementById("audio").play();
 
-            document.getElementById("now") =
+            document.getElementById("now").innerText =
                 "🎵 " + songs[i].title + " - " + songs[i].artist;
         }
 
