@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boligeria Music Studio</title>
+    <title>Boligeria Music Studio - Mobile</title>
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: Arial;
         }
         
         body {
@@ -24,27 +24,30 @@
             width: 240px;
             height: 100vh;
             position: fixed;
+            left: 0;
+            top: 0;
             background: linear-gradient(180deg, #111, #000);
             padding: 20px;
             border-right: 2px solid gold;
+            transition: 0.3s;
+            z-index: 1000;
         }
         
         .logo {
-            font-size: 26px;
-            font-weight: bold;
+            font-size: 24px;
             color: gold;
+            font-weight: bold;
             text-shadow: 0 0 10px gold;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         
         .sidebar a {
             display: block;
             color: white;
             text-decoration: none;
-            margin: 12px 0;
             padding: 10px;
+            margin: 10px 0;
             border-radius: 8px;
-            transition: 0.3s;
         }
         
         .sidebar a:hover {
@@ -56,58 +59,38 @@
         .main {
             margin-left: 260px;
             padding: 20px;
+            transition: 0.3s;
         }
         
         .header {
-            font-size: 32px;
-            font-weight: bold;
+            font-size: 28px;
             color: gold;
-            text-shadow: 0 0 15px gold;
+            font-weight: bold;
+            text-shadow: 0 0 10px gold;
         }
         
         .search input {
             width: 100%;
             padding: 12px;
+            margin: 15px 0;
             border-radius: 10px;
             border: 1px solid gold;
             background: #111;
             color: white;
-            margin: 15px 0;
-        }
-        /* SECTION */
-        
-        .section {
-            margin-top: 40px;
-            padding: 20px;
-            border: 1px solid gold;
-            border-radius: 15px;
-            background: #111;
-        }
-        
-        .section h2 {
-            color: gold;
-            margin-bottom: 15px;
         }
         /* GRID */
         
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
         }
         
         .card {
             background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
             border: 1px solid rgba(255, 215, 0, 0.3);
             border-radius: 15px;
-            padding: 15px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px gold;
+            padding: 12px;
         }
         
         .card img {
@@ -117,45 +100,59 @@
         
         .card h3 {
             color: gold;
-            margin-top: 10px;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+        /* BUTTON */
+        
+        .btn {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 6px 10px;
+            background: gold;
+            color: black;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 12px;
         }
         /* PROFILE */
         
         .profile {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             align-items: center;
             margin-top: 15px;
-            padding: 15px;
+            padding: 12px;
             background: #000;
             border: 1px solid rgba(255, 215, 0, 0.3);
             border-radius: 12px;
         }
         
         .profile img {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             border: 2px solid gold;
         }
         
         .profile h3 {
             color: gold;
+            font-size: 14px;
         }
         /* NEWS */
         
         .news-card {
             background: #000;
             border: 1px solid gold;
-            padding: 15px;
+            padding: 12px;
             border-radius: 12px;
-            margin-top: 15px;
+            margin-top: 10px;
         }
         
         .news-title {
             color: gold;
-            font-size: 18px;
-            margin-bottom: 5px;
+            font-size: 15px;
         }
         /* PLAYER */
         
@@ -166,41 +163,76 @@
             right: 0;
             background: #0a0a0a;
             border-top: 2px solid gold;
+            padding: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
         }
         
         .player audio {
-            width: 55%;
+            width: 60%;
         }
-        /* BUTTONS */
+        /* HAMBURGER */
         
-        .btn {
-            background: linear-gradient(90deg, gold, #ffcc00);
-            border: none;
-            padding: 6px 10px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-top: 8px;
-            display: inline-block;
-            text-decoration: none;
+        .menu-btn {
+            display: none;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background: gold;
             color: black;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            z-index: 2000;
+            cursor: pointer;
+        }
+        /* MOBILE */
+        
+        @media(max-width:768px) {
+            .sidebar {
+                left: -260px;
+            }
+            .sidebar.active {
+                left: 0;
+            }
+            .main {
+                margin-left: 0;
+                padding-top: 60px;
+            }
+            .player {
+                left: 0;
+                flex-direction: column;
+                gap: 8px;
+            }
+            .player audio {
+                width: 100%;
+            }
+            .menu-btn {
+                display: block;
+            }
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         
-        .btn:hover {
-            box-shadow: 0 0 15px gold;
+        @media(max-width:480px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
 
+    <!-- MENU BUTTON -->
+    <div class="menu-btn" onclick="toggleMenu()">☰ MENU</div>
+
     <!-- SIDEBAR -->
-    <div class="sidebar">
-        <div class="logo">💛 Boligeria MUSIC</div>
+    <div class="sidebar" id="sidebar">
+        <div class="logo">💛 MUSIC</div>
+
         <a href="#songs">🎧 Songs</a>
         <a href="#artists">👨‍🎤 Artists</a>
         <a href="#news">📰 News</a>
@@ -210,7 +242,7 @@
     <!-- MAIN -->
     <div class="main">
 
-        <div class="header">Boligeria Music Studio ✨</div>
+        <div class="header">Boligeria Music Studio 💛</div>
 
         <div class="search">
             <input type="text" placeholder="Search songs or artists..." onkeyup="searchSongs(this.value)">
@@ -218,19 +250,19 @@
 
         <!-- SONGS -->
         <div class="section" id="songs">
-            <h2>🎧 Latest Songs</h2>
+            <h2 style="color:gold">🎧 Latest Songs</h2>
             <div class="grid" id="songGrid"></div>
         </div>
 
         <!-- ARTISTS -->
         <div class="section" id="artists">
-            <h2>👨‍🎤 Artist Profiles</h2>
+            <h2 style="color:gold">👨‍🎤 Artists</h2>
 
             <div class="profile">
                 <img src="G.jpg">
                 <div>
-                    <h3>G BWOY </h3>
-                    <p>Afrobeat & Hip-Hop Producer</p>
+                    <h3>G Bwoy</h3>
+                    <p>Afrobeat Producer</p>
                 </div>
             </div>
 
@@ -242,116 +274,104 @@
                 </div>
             </div>
 
+        </div>
+
+        <!-- NEWS -->
+        <div class="section" id="news">
+            <h2 style="color:gold">📰 News</h2>
+
+            <div class="news-card">
+                <div class="news-title">🔥 Afrobeat dominates global charts</div>
+                <p>Streaming numbers are rising worldwide.</p>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">💛 New mobile update released</div>
+                <p>Better UI for phones and tablets.</p>
+            </div>
+
+        </div>
+
+        <!-- CEO -->
+        <div class="section" id="ceo">
+            <h2 style="color:gold">👑 CEO</h2>
+
             <div class="profile">
-                <img src="b.jpeg">
+                <img src="king fresh.png">
                 <div>
-                    <h3>The Biggest</h3>
-                    <p>Dancehall Artist</p>
+                    <h3>Abdul Razak Abubakari</h3>
+                    <p>Founder & Vision Builder</p>
                 </div>
-            </div>
-
-            <!-- NEWS -->
-            <div class="section" id="news">
-                <h2>📰 Music News</h2>
-
-                <div class="news-card">
-                    <div class="news-title">Golden Music reaches 1M users 🎉</div>
-                    <p>Global listeners are streaming daily across all genres.</p>
-                </div>
-
-                <div class="news-card">
-                    <div class="news-title">Afrobeat dominates charts 🔥</div>
-                    <p>Afrobeat continues to grow worldwide.</p>
-                </div>
-
-            </div>
-
-            <!-- CEO -->
-            <div class="section" id="ceo">
-                <h2>👑 CEO Profile</h2>
-
-                <div class="profile">
-                    <img src="king fresh.png">
-                    <div>
-                        <h3>Abdul Razak Abubakari (King Fresh)</h3>
-                        <p>Founder & CEO</p>
-                        <p>Vision: Build the world’s #1 music platform 💛</p>
-                    </div>
-                </div>
-
             </div>
 
         </div>
 
-        <!-- PLAYER -->
-        <div class="player">
-            <div id="now">No song playing</div>
-            <audio id="audio" controls></audio>
-        </div>
+    </div>
 
-        <script>
-            /* SONG DATA */
-            let songs = [{
-                title: "Khaid Nin Rukaya",
-                artist: "Rulling King",
-                cover: "",
-                file: "song.mp3"
-            }, {
-                title: "WYFL Riddim",
-                artist: "G Bwoy",
-                cover: "G.jpg",
-                file: "GBM.mp3"
-            }, {
-                title: "Royal Vibes",
-                artist: "Golden Crew",
-                cover: "https://picsum.photos/300/300?3",
-                file: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
-            }];
+    <!-- PLAYER -->
+    <div class="player">
+        <div id="now">No song playing</div>
+        <audio id="audio" controls></audio>
+    </div>
 
-            /* DISPLAY SONGS */
-            function display(list = songs) {
-                let box = document.getElementById("songGrid");
-                box.innerHTML = "";
+    <script>
+        function toggleMenu() {
+            document.getElementById("sidebar").classList.toggle("active");
+        }
 
-                list.forEach((s, i) => {
-                    box.innerHTML += `
-<div class="card" onclick="playSong(${i})">
+        let songs = [{
+            title: "Khaid Nin Rukaya",
+            artist: "Rulling King",
+            cover: "G.jpg",
+            file: "song.mp3"
+        }, {
+            title: "WYFL Riddim",
+            artist: "G Bwoy",
+            cover: "G.jpg",
+            file: "GBM.mp3"
+        }, {
+            title: "Royal Vibes",
+            artist: "Golden Crew",
+            cover: "https://picsum.photos/300",
+            file: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+        }];
+
+        function display(list = songs) {
+            let box = document.getElementById("songGrid");
+            box.innerHTML = "";
+
+            list.forEach((s, i) => {
+                box.innerHTML += `
+<div class="card">
 <img src="${s.cover}">
 <h3>${s.title}</h3>
 <p>${s.artist}</p>
 
-<audio style="width:100%;margin-top:8px" controls>
-<source src="${s.file}">
-</audio>
-
-<a class="btn" href="${s.file}" download>⬇ Download</a>
-
+<button class="btn" onclick="playSong(${i})">▶ Play</button>
+<a class="btn" href="${s.file}" download>⬇</a>
 </div>`;
-                });
-            }
+            });
+        }
 
-            /* PLAY */
-            function playSong(i) {
-                document.getElementById("audio").src = songs[i].file;
-                document.getElementById("audio").play();
+        function playSong(i) {
+            document.getElementById("audio").src = songs[i].file;
+            document.getElementById("audio").play();
 
-                document.getElementById("now").innerText =
-                    "🎵 " + songs[i].title + " - " + songs[i].artist;
-            }
+            document.getElementById("now") =
+                "🎵 " + songs[i].title + " - " + songs[i].artist;
+        }
 
-            /* SEARCH */
-            function searchSongs(val) {
-                val = val.toLowerCase();
-                let filtered = songs.filter(s =>
-                    s.title.toLowerCase().includes(val) ||
-                    s.artist.toLowerCase().includes(val)
-                );
-                display(filtered);
-            }
+        function searchSongs(val) {
+            val = val.toLowerCase();
+            let filtered = songs.filter(s =>
+                s.title.toLowerCase().includes(val) ||
+                s.artist.toLowerCase().includes(val)
+            );
+            display(filtered);
+        }
 
-            /* INIT */
-            display();
-        </script>
+        display();
+    </script>
 
 </body>
 
