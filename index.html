@@ -1,338 +1,542 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boligeria Music Studio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boligeria Music Studio</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial;
-        }
-        
-        body {
-            background: radial-gradient(circle at top, #1a1400, #000);
-            color: white;
-        }
-        /* TOP NAV */
-        
-        .topbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 60px;
-            background: linear-gradient(90deg, #111, #000);
-            border-bottom: 2px solid gold;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 15px;
-            z-index: 1000;
-        }
-        
-        .logo {
-            color: gold;
-            font-weight: bold;
-            font-size: 18px;
-            text-shadow: 0 0 10px gold;
-        }
-        
-        .nav {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        
-        .nav a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 10px;
-            border-radius: 8px;
-            font-size: 14px;
-        }
-        
-        .nav a:hover {
-            background: gold;
-            color: black;
-        }
-        /* MAIN */
-        
-        .main {
-            padding: 80px 15px 100px;
-        }
-        /* SEARCH */
-        
-        .search input {
-            width: 100%;
-            padding: 12px;
-            border-radius: 10px;
-            border: 1px solid gold;
-            background: #111;
-            color: white;
-            margin-bottom: 15px;
-        }
-        /* GRID */
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 15px;
-        }
-        
-        .card {
-            background: #111;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 15px;
-            padding: 12px;
-        }
-        
-        .card img {
-            width: 100%;
-            border-radius: 10px;
-        }
-        
-        .card h3 {
-            color: gold;
-            margin-top: 8px;
-            font-size: 14px;
-        }
-        /* BUTTON */
-        
-        .btn {
-            display: inline-block;
-            margin-top: 8px;
-            padding: 6px 10px;
-            background: gold;
-            color: black;
-            border-radius: 8px;
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 12px;
-            border: none;
-            cursor: pointer;
-        }
-        /* SECTION */
-        
-        .section {
-            margin-top: 30px;
-        }
-        /* PROFILE */
-        
-        .profile {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            margin-top: 15px;
-            padding: 12px;
-            background: #000;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 12px;
-        }
-        
-        .profile img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: 2px solid gold;
-        }
-        
-        .profile h3 {
-            color: gold;
-            font-size: 14px;
-        }
-        /* NEWS */
-        
-        .news-card {
-            background: #000;
-            border: 1px solid gold;
-            padding: 12px;
-            border-radius: 12px;
-            margin-top: 10px;
-        }
-        
-        .news-title {
-            color: gold;
-            font-size: 15px;
-        }
-        /* PLAYER */
-        
-        .player {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #0a0a0a;
-            border-top: 2px solid gold;
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .player audio {
-            width: 60%;
-        }
-        /* MOBILE */
-        
-        @media(max-width:768px) {
-            .nav {
-                display: none;
-            }
-            .player {
-                flex-direction: column;
-                gap: 8px;
-            }
-            .player audio {
-                width: 100%;
-            }
-        }
-    </style>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:linear-gradient(to bottom,#0a0a0a,#000);
+    color:white;
+}
+
+/* HEADER */
+.topbar{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:65px;
+    background:#000;
+    border-bottom:2px solid gold;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 20px;
+    z-index:1000;
+}
+
+.logo{
+    color:gold;
+    font-size:22px;
+    font-weight:bold;
+    text-shadow:0 0 10px gold;
+}
+
+.nav{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.nav a{
+    color:white;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.nav a:hover{
+    background:gold;
+    color:black;
+}
+
+/* MAIN */
+.main{
+    padding:90px 20px 100px;
+}
+
+/* HERO */
+.hero{
+    text-align:center;
+    padding:60px 20px;
+    border:1px solid gold;
+    border-radius:20px;
+    background:linear-gradient(135deg,#1a1400,#000);
+    margin-bottom:30px;
+}
+
+.hero h1{
+    color:gold;
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    color:#ccc;
+    margin-bottom:20px;
+}
+
+.btn{
+    background:gold;
+    color:black;
+    border:none;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* SEARCH */
+.search input{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid gold;
+    background:#111;
+    color:white;
+    margin-bottom:25px;
+}
+
+/* SECTIONS */
+.section{
+    margin-top:40px;
+}
+
+.section h2{
+    color:gold;
+    margin-bottom:15px;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+}
+
+.card{
+    background:#111;
+    border:1px solid rgba(255,215,0,.3);
+    border-radius:15px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 20px gold;
+}
+
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:12px;
+}
+
+.card h3{
+    color:gold;
+    margin-bottom:5px;
+}
+
+/* PROFILE */
+.profile{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    background:#111;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:12px;
+}
+
+.profile img{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    border:2px solid gold;
+}
+
+/* NEWS */
+.news-card{
+    background:#111;
+    border-left:4px solid gold;
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:10px;
+}
+
+.news-title{
+    color:gold;
+    margin-bottom:5px;
+}
+
+/* FESTIVAL */
+.festival{
+    background:#111;
+    padding:20px;
+    border-radius:15px;
+    border:1px solid gold;
+}
+
+/* PLAYER */
+.player{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    background:#000;
+    border-top:2px solid gold;
+    padding:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.player audio{
+    width:60%;
+}
+
+/* FOOTER */
+footer{
+    margin-top:50px;
+    text-align:center;
+    padding:30px;
+    border-top:2px solid gold;
+    color:#aaa;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .nav{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .player{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .player audio{
+        width:100%;
+    }
+}
+</style>
 </head>
-
 <body>
 
-    <!-- TOP BAR -->
-    <div class="topbar">
-        <div class="logo">💛 MUSIC</div>
+<!-- HEADER -->
+<div class="topbar">
+    <div class="logo">🎵 Boligeria Music Studio</div>
 
-        <div class="nav">
-            <a href="#songs">Songs</a>
-            <a href="#artists">Artists</a>
-            <a href="#news">News</a>
-            <a href="#ceo">CEO</a>
+    <div class="nav">
+        <a href="#songs">Songs</a>
+        <a href="#artists">Artists</a>
+        <a href="#news">News</a>
+        <a href="#festival">Festival</a>
+        <a href="#events">Events</a>
+        <a href="#ceo">CEO</a>
+        <a href="#contact">Contact</a>
+    </div>
+</div>
+
+<div class="main">
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Boligeria Music Studio</h1>
+        <p>Music • Entertainment • News • Culture • Festivals</p>
+        <button class="btn">Explore Music</button>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search">
+        <input type="text"
+        placeholder="Search songs or artists..."
+        onkeyup="searchSongs(this.value)">
+    </div>
+
+    <!-- SONGS -->
+    <div class="section" id="songs">
+        <h2>🎧 Latest Songs</h2>
+        <div class="grid" id="songGrid"></div>
+    </div>
+
+    <!-- ARTISTS -->
+    <div class="section" id="artists">
+        <h2>👨‍🎤 Artists</h2>
+
+        <div class="profile">
+            <img src="G.jpg">
+            <div>
+                <h3>G Bwoy</h3>
+                <p>Afrobeat Producer</p>
+            </div>
+        </div>
+
+        <div class="profile">
+            <img src="r.jpeg">
+            <div>
+                <h3>Rulling King</h3>
+                <p>Vocal Artist</p>
+            </div>
         </div>
     </div>
 
-    <!-- MAIN -->
-    <div class="main">
+    <!-- NEWS -->
+    <div class="section" id="news">
+        <h2>📰 Music News</h2>
 
-        <div class="search">
-            <input type="text" placeholder="Search songs or artists..." onkeyup="searchSongs(this.value)">
+        <div class="news-card">
+            <div class="news-title">🔥 Afrobeat Dominates Charts</div>
+            <p>Streaming numbers continue to rise globally.</p>
         </div>
 
-        <!-- SONGS -->
-        <div class="section" id="songs">
-            <h2 style="color:gold">🎧 Latest Songs</h2>
-            <div class="grid" id="songGrid"></div>
+        <div class="news-card">
+            <div class="news-title">🎵 New Album Coming Soon</div>
+            <p>G Bwoy announces upcoming Afrobeat project.</p>
         </div>
 
-        <!-- ARTISTS -->
-        <div class="section" id="artists">
-            <h2 style="color:gold">👨‍🎤 Artists</h2>
-
-            <div class="profile">
-                <img src="G.jpg">
-                <div>
-                    <h3>G Bwoy</h3>
-                    <p>Afrobeat Producer</p>
-                </div>
-            </div>
-
-            <div class="profile">
-                <img src="r.jpeg">
-                <div>
-                    <h3>Rulling King</h3>
-                    <p>Vocal Artist</p>
-                </div>
-            </div>
-            
-
-
+        <div class="news-card">
+            <div class="news-title">🏆 Music Awards Nomination</div>
+            <p>Boligeria Music Studio gains recognition.</p>
         </div>
-
-        <!-- NEWS -->
-        <div class="section" id="news">
-            <h2 style="color:gold">📰 News</h2>
-
-            <div class="news-card">
-                <div class="news-title">🔥 Afrobeat dominates charts</div>
-                <p>Streaming numbers increasing daily worldwide.</p>
-            </div>
-
-            <div class="news-card">
-                <div class="news-title">💛 New golden UI update</div>
-                <p>Better mobile and desktop experience.</p>
-            </div>
-
-        </div>
-
-        <!-- CEO -->
-        <div class="section" id="ceo">
-            <h2 style="color:gold">👑 CEO</h2>
-
-            <div class="profile">
-                <img src="king fresh.png">
-                <div>
-                    <h3>Abdul Razak Abubakari</h3>
-                    <p>Founder & Vision Builder</p>
-                </div>
-            </div>
-
-        </div>
-
     </div>
 
-    <!-- PLAYER -->
-    <div class="player">
-        <div id="now">No song playing</div>
-        <audio id="audio" controls></audio>
+    <!-- FESTIVAL -->
+    <div class="section" id="festival">
+        <h2>🎣 Fishing Festival</h2>
+
+        <div class="festival">
+            <h3 style="color:gold;margin-bottom:10px;">
+                Annual Fishing Festival
+            </h3>
+
+            <p>
+                Experience traditional fishing,
+                live music performances,
+                cultural displays,
+                food exhibitions,
+                dance competitions
+                and entertainment.
+            </p>
+
+            <br>
+
+            <button class="btn">
+                View Festival
+            </button>
+        </div>
     </div>
 
-    <script>
-        let songs = [{
-            title: "Khaid Nin Rukaya",
-            artist: "Rulling King",
-            cover: "G.jpg",
-            file: "song.mp3"
-        }, {
-            title: "WYFL Riddim",
-            artist: "G Bwoy",
-            cover: "G.jpg",
-            file: "GBM.mp3"
-        }];
+    <!-- EVENTS -->
+    <div class="section" id="events">
+        <h2>🎪 Upcoming Events</h2>
 
-        function display(list = songs) {
-            let box = document.getElementById("songGrid");
-            box.innerHTML = "";
+        <div class="news-card">
+            <div class="news-title">
+                🎤 Live Concert Night
+            </div>
+            <p>Saturday 7:00 PM</p>
+        </div>
 
-            list.forEach((s, i) => {
-                box.innerHTML += `
+        <div class="news-card">
+            <div class="news-title">
+                🎧 DJ Mix Party
+            </div>
+            <p>Friday 9:00 PM</p>
+        </div>
+    </div>
+
+    <!-- CEO -->
+    <div class="section" id="ceo">
+        <h2>👑 CEO</h2>
+
+        <div class="profile">
+            <img src="king fresh.png">
+
+            <div>
+                <h3>Abdul Razak Abubakari</h3>
+                <p>Founder & Vision Builder</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="section" id="contact">
+        <h2>📞 Contact</h2>
+
+        <div class="news-card">
+            <p>Email: info@boligeria.com</p>
+            <p>Phone: +233 XX XXX XXXX</p>
+            <p>Location: Ghana</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <h3 style="color:gold;">
+            Boligeria Music Studio
+        </h3>
+        <br>
+        <p>
+            Music • Entertainment • Culture • Festivals
+        </p>
+        <br>
+        <p>
+            © 2026 All Rights Reserved
+        </p>
+    </footer>
+
+</div>
+
+<!-- PLAYER -->
+<div class="player">
+    <div id="now">No song playing</div>
+    <audio id="audio" controls></audio>
+</div>
+
+<script>
+
+let songs = [
+
+{
+title:"Khaid Nin Rukaya",
+artist:"Rulling King",
+cover:"G.jpg",
+file:"song.mp3"
+},
+
+{
+title:"WYFL Riddim",
+artist:"G Bwoy",
+cover:"G.jpg",
+file:"GBM.mp3"
+},
+
+{
+title:"Golden Love",
+artist:"G Bwoy",
+cover:"G.jpg",
+file:"GBM.mp3"
+},
+
+{
+title:"Champion",
+artist:"Rulling King",
+cover:"G.jpg",
+file:"song.mp3"
+},
+
+{
+title:"Forever Afro",
+artist:"G Bwoy",
+cover:"G.jpg",
+file:"GBM.mp3"
+},
+
+{
+title:"Dream Chaser",
+artist:"Rulling King",
+cover:"G.jpg",
+file:"song.mp3"
+}
+];
+
+function display(list=songs){
+
+let box=document.getElementById("songGrid");
+box.innerHTML="";
+
+list.forEach((s,i)=>{
+
+box.innerHTML+=`
 <div class="card">
+
 <img src="${s.cover}">
+
+<div class="card-content">
+
 <h3>${s.title}</h3>
+
 <p>${s.artist}</p>
 
-<button class="btn" onclick="playSong(${i})">▶ Play</button>
-<a class="btn" href="${s.file}" download>⬇ Download</a>
-</div>`;
-            });
-        }
+<br>
 
-        function playSong(i) {
-            document.getElementById("audio").src = songs[i].file;
-            document.getElementById("audio").play();
+<button class="btn"
+onclick="playSong(${i})">
+▶ Play
+</button>
 
-            document.getElementById("now").innerText =
-                "🎵 " + songs[i].title + " - " + songs[i].artist;
-        }
+<a class="btn"
+href="${s.file}"
+download>
+⬇ Download
+</a>
 
-        function searchSongs(val) {
-            val = val.toLowerCase();
-            let filtered = songs.filter(s =>
-                s.title.toLowerCase().includes(val) ||
-                s.artist.toLowerCase().includes(val)
-            );
-            display(filtered);
-        }
+</div>
 
-        display();
-    </script>
+</div>
+`;
+
+});
+
+}
+
+function playSong(i){
+
+document.getElementById("audio").src=songs[i].file;
+
+document.getElementById("audio").play();
+
+document.getElementById("now").innerText=
+"🎵 "+songs[i].title+
+" - "+songs[i].artist;
+
+}
+
+function searchSongs(val){
+
+val=val.toLowerCase();
+
+let filtered=songs.filter(s=>
+
+s.title.toLowerCase().includes(val)
+
+||
+
+s.artist.toLowerCase().includes(val)
+
+);
+
+display(filtered);
+
+}
+
+display();
+
+</script>
 
 </body>
-
 </html>
+```
